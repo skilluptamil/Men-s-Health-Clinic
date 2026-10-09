@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vanguard Urology & Men's Health Clinic provides board-certified, discreet, and advanced urological care, prostate treatment, TRT, and male vitality solutions.">
+  <meta name="keywords" content="urology clinic, men's health, prostate treatment, low testosterone, TRT, ED therapy, vasectomy, kidney stones">
+  <title>Vanguard Urology & Men's Health Clinic | Premier Care & Vitality</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Header & Navigation (Starts directly at top) -->
+  <header class="header-wrapper">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="brand-logo" id="header-brand-logo">
+        <div class="brand-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z"></path>
+            <path d="M12 7v10M7 12h10"></path>
+          </svg>
+        </div>
+        <div class="brand-logo-text">
+          <span class="brand-title">VANGUARD</span>
+          <span class="brand-subtitle">Urology & Men's Health</span>
+        </div>
+      </a>
+
+      <!-- Main Navigation Menu (Strictly: Home with Home 1/2 dropdown, About Us, Services, Blog, Contact) -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <div class="nav-item has-dropdown">
+          <a href="index.html" class="nav-link active">
+            <span>Home</span>
+            <svg class="dropdown-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="index.html" class="dropdown-link active">Home 1</a>
+            <a href="home-2.html" class="dropdown-link">Home 2</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="about.html" class="nav-link">About Us</a>
+        </div>
+        <div class="nav-item">
+          <a href="services.html" class="nav-link">Services</a>
+        </div>
+        <div class="nav-item">
+          <a href="blog.html" class="nav-link">Blog</a>
+        </div>
+        <div class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+      </nav>
+
+      <!-- Header Action Controls & Primary CTA -->
+      <div class="header-actions">
+        <!-- Theme Switcher -->
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- RTL Switcher -->
+        <button type="button" class="rtl-toggle-btn" aria-label="Toggle RTL Mode" title="Toggle RTL">RTL</button>
+
+        <!-- Primary CTA Button -->
+        <button type="button" class="btn btn-primary header-cta-btn btn-book-appointment">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Book an Appointment</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="mobile-toggle" aria-label="Toggle Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z"></path>
+            <path d="M12 7v10M7 12h10"></path>
+          </svg>
+          </div>
+          <div class="brand-logo-text">
+            <span class="brand-title" style="font-size:1.1rem;">VANGUARD</span>
+            <span class="brand-subtitle" style="font-size:0.6rem;">Urology Care</span>
+          </div>
+        </a>
+        <button type="button" class="drawer-close-btn" aria-label="Close Menu">&times;</button>
+      </div>
+
+      <div class="mobile-nav-list">
+        <div class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link mobile-dropdown-trigger">
+            <span>Home</span>
+            <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="mobile-dropdown active">
+            <a href="index.html" class="mobile-dropdown-link active">Home 1</a>
+            <a href="home-2.html" class="mobile-dropdown-link">Home 2</a>
+          </div>
+        </div>
+        <div class="mobile-nav-item">
+          <a href="about.html" class="mobile-nav-link">About Us</a>
+        </div>
+        <div class="mobile-nav-item">
+          <a href="services.html" class="mobile-nav-link">Services</a>
+        </div>
+        <div class="mobile-nav-item">
+          <a href="blog.html" class="mobile-nav-link">Blog</a>
+        </div>
+        <div class="mobile-nav-item">
+          <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <button type="button" class="btn btn-primary btn-book-appointment" style="width: 100%; margin-bottom: 1rem;">
+          Book an Appointment
+        </button>
+        <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+          📞 Confidential: +1 (800) 555-8765
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+    
+    <!-- SECTION 1: Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="section-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Board-Certified Urological Excellence
+            </div>
+            <h1 class="hero-title">Advanced Urology & <br><span class="text-highlight">Men's Health Care</span></h1>
+            <p class="hero-desc">
+              Experience discreet, world-class medical treatments tailored for men. From robotic prostate procedures to hormone optimization and non-invasive vitality therapies, our senior specialists deliver gold-standard clinical results.
+            </p>
+            <div class="hero-actions">
+              <button type="button" class="btn btn-primary btn-lg btn-book-appointment">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Book Confidential Consult</span>
+              </button>
+              <a href="services.html" class="btn btn-outline btn-lg">
+                <span>Explore Treatments</span>
+                <svg class="svg-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+            </div>
+            
+            <div class="hero-stats-row">
+              <div class="hero-stat-item">
+                <span class="stat-number">15,000+</span>
+                <span class="stat-label">Men Treated Successfully</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="stat-number">99.4%</span>
+                <span class="stat-label">Patient Satisfaction</span>
+              </div>
+              <div class="hero-stat-item">
+                <span class="stat-number">25+ Yrs</span>
+                <span class="stat-label">Clinical Leadership</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <div class="hero-image-wrapper">
+              <img src="assets/images/hero-home1.jpg" alt="Senior Chief Urologist consulting in modern clinic" width="640" height="480">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Highlights / Trust Ticker -->
+    <section class="highlight-bar">
+      <div class="container">
+        <div class="highlight-grid">
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="highlight-content">
+              <h4>Board-Certified Specialists</h4>
+              <p>Fellowship-trained urologists & andrology surgeons.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+            </div>
+            <div class="highlight-content">
+              <h4>State-of-the-Art Tech</h4>
+              <p>da Vinci Robotic & Lumenis Holmium Laser suites.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="highlight-content">
+              <h4>Zero Wait Times</h4>
+              <p>Direct priority scheduling with private consultation rooms.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <div class="highlight-content">
+              <h4>Strict Confidentiality</h4>
+              <p>Discreet digital records & private executive exit corridors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Key Services Section -->
+    <section class="section bg-alt" id="key-services">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">Comprehensive Clinical Treatments</span>
+          <h2>Specialized Urology & Men's Health Services</h2>
+          <p class="section-subtitle">Delivering precision diagnostics and evidence-based clinical therapies designed to restore vitality, function, and long-term wellness.</p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Service Card 1 -->
+          <article class="service-card">
+            <div class="service-card-media">
+              <img src="assets/images/service-prostate.jpg" alt="Prostate & BPH Laser Care">
+              <span class="service-badge-pill">Robotic & Laser</span>
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h3>Prostate & BPH Laser Care</h3>
+              <p>Advanced minimally invasive treatments including Rezūm water vapor therapy and Holmium laser enucleation for enlarged prostate.</p>
+              <ul class="service-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Same-day outpatient procedure</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Preserves sexual function</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="service-details.html#prostate" class="service-link">
+                  <span>Explore Procedure & Mechanism</span>
+                  <svg class="svg-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-service="Prostate & BPH Laser Care">Book</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service Card 2 -->
+          <article class="service-card">
+            <div class="service-card-media">
+              <img src="assets/images/service-trt.jpg" alt="Testosterone Therapy (TRT)">
+              <span class="service-badge-pill">Hormone Optimization</span>
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
+              </div>
+              <h3>Testosterone Therapy (TRT)</h3>
+              <p>Comprehensive endocrine blood panels and physician-monitored TRT protocols to restore energy, muscle mass, mental sharpness, and drive.</p>
+              <ul class="service-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced 20+ biomarker assay</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Tailored micro-dosing protocols</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="service-details.html#trt" class="service-link">
+                  <span>Explore Procedure & Mechanism</span>
+                  <svg class="svg-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-service="Testosterone Therapy (TRT)">Book</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service Card 3 -->
+          <article class="service-card">
+            <div class="service-card-media">
+              <img src="assets/images/service-ed.jpg" alt="Acoustic Wave ED Therapy">
+              <span class="service-badge-pill">Regenerative Care</span>
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <h3>Acoustic Wave ED Therapy</h3>
+              <p>Non-invasive low-intensity focused shockwave therapy and vascular rejuvenation protocols to treat root causes without lifelong medication.</p>
+              <ul class="service-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 100% Drug-free & painless</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Proven clinical vascular restoration</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="service-details.html#ed" class="service-link">
+                  <span>Explore Procedure & Mechanism</span>
+                  <svg class="svg-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-service="Acoustic Wave ED Therapy">Book</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service Card 4 -->
+          <article class="service-card">
+            <div class="service-card-media">
+              <img src="assets/images/service-kidney.jpg" alt="Kidney Stone Laser Removal">
+              <span class="service-badge-pill">Laser Lithotripsy</span>
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path></svg>
+              </div>
+              <h3>Kidney Stone Laser Removal</h3>
+              <p>Rapid emergency relief and precision ureteroscopy with Holmium laser dusting to clear complex kidney stones comfortably.</p>
+              <ul class="service-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Rapid same-day pain resolution</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> In-house metabolic stone prevention</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="service-details.html#kidney" class="service-link">
+                  <span>Explore Procedure & Mechanism</span>
+                  <svg class="svg-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-service="Kidney Stone Laser Removal">Book</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service Card 5 -->
+          <article class="service-card">
+            <div class="service-card-media">
+              <img src="assets/images/service-vasectomy.jpg" alt="No-Scalpel Vasectomy">
+              <span class="service-badge-pill">Microsurgery</span>
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+              </div>
+              <h3>No-Scalpel Vasectomy</h3>
+              <p>Gentle 15-minute no-needle, no-scalpel procedure with fast weekend recovery, and precision microsurgical reversals.</p>
+              <ul class="service-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 99.8% Effectiveness rate</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-power surgical microscope reversal</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="service-details.html#vasectomy" class="service-link">
+                  <span>Explore Procedure & Mechanism</span>
+                  <svg class="svg-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-service="No-Scalpel Vasectomy">Book</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service Card 6 -->
+          <article class="service-card">
+            <div class="service-card-media">
+              <img src="assets/images/service-fertility.jpg" alt="Male Reproductive Medicine">
+              <span class="service-badge-pill">Andrology & Microsurgery</span>
+            </div>
+            <div class="service-card-body">
+              <div class="service-icon-wrap">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+              </div>
+              <h3>Male Reproductive Medicine</h3>
+              <p>Specialized male fertility evaluations, advanced sperm DNA diagnostics, and microscopic varicocele repair to enhance reproductive vitality.</p>
+              <ul class="service-features-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-resolution semen analysis</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Doppler-guided microsurgery</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="service-details.html#fertility" class="service-link">
+                  <span>Explore Procedure & Mechanism</span>
+                  <svg class="svg-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-service="Male Reproductive Medicine">Book</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Why Choose Us / Clinical Features -->
+    <section class="section" id="why-choose-us">
+      <div class="container">
+        <div class="features-grid-split">
+          <div class="feature-left">
+            <span class="section-badge">Why Choose Vanguard Clinic</span>
+            <h2>Setting the Standard in Modern Male Healthcare</h2>
+            <p style="margin-bottom: 2rem;">
+              We understand that urological and vitality concerns require both world-class medical mastery and absolute discretion. Our institute combines Ivy League fellowship credentials with private luxury clinical hospitality.
+            </p>
+            <div class="feature-list-group">
+              <div class="feature-box">
+                <div class="feature-icon-badge">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div class="feature-content">
+                  <h4>Fellowship-Trained Board Specialists</h4>
+                  <p>Our physicians have completed rigorous subspecialty fellowships at America's top urology institutes.</p>
+                </div>
+              </div>
+
+              <div class="feature-box">
+                <div class="feature-icon-badge">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </div>
+                <div class="feature-content">
+                  <h4>VIP Private Consultation Suites</h4>
+                  <p>Direct private check-in and dedicated private waiting lounges ensuring 100% privacy for every patient.</p>
+                </div>
+              </div>
+
+              <div class="feature-box">
+                <div class="feature-icon-badge">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                </div>
+                <div class="feature-content">
+                  <h4>In-House Diagnostic Labs & Imaging</h4>
+                  <p>Same-day hormone assays, high-resolution ultrasound, and flow rate diagnostics with immediate results.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-right">
+            <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); border: 1px solid var(--border-color);">
+              <img src="assets/images/about-team.jpg" alt="Vanguard Medical Team in clinical conference room" width="600" height="420">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Senior Specialists / Doctors -->
+    <section class="section bg-alt" id="medical-team">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">Ivy League & Board-Certified</span>
+          <h2>Meet Our Senior Medical Specialists</h2>
+          <p class="section-subtitle">Our fellowship-trained urologists, andrologists, and microsurgeons are recognized leaders in men's health.</p>
+        </div>
+
+        <div class="doctors-grid">
+          <!-- Doctor 1 -->
+          <article class="doctor-card">
+            <div class="doctor-media">
+              <img src="assets/images/dr-anthony-rossi.jpg" alt="Dr. Anthony Rossi, MD - Senior Consultant Urologist">
+              <span class="doctor-badge-exp">24+ Yrs Exp</span>
+            </div>
+            <div class="doctor-info">
+              <h4>Dr. Anthony Rossi, MD</h4>
+              <span class="doctor-role">Chief Urologist & Robotic Surgeon</span>
+              <p class="doctor-creds">Board Certified in Urology. Former Chief of Urological Surgery at Columbia Presbyterian. Specialist in robotic prostatectomy & BPH.</p>
+              <div class="doctor-card-footer">
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-doctor="Dr. Anthony Rossi, MD">Book Consult</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Doctor 2 -->
+          <article class="doctor-card">
+            <div class="doctor-media">
+              <img src="assets/images/dr-david-chen.jpg" alt="Dr. David Chen, MD, PhD - Andrology & Hormone Specialist">
+              <span class="doctor-badge-exp">16+ Yrs Exp</span>
+            </div>
+            <div class="doctor-info">
+              <h4>Dr. David Chen, MD, PhD</h4>
+              <span class="doctor-role">Director of Andrology & TRT</span>
+              <p class="doctor-creds">Harvard Fellowship in Male Reproductive Medicine. Pioneer in hormonal micro-dosing and metabolic vitality protocols.</p>
+              <div class="doctor-card-footer">
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-doctor="Dr. David Chen, MD, PhD">Book Consult</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Doctor 3 -->
+          <article class="doctor-card">
+            <div class="doctor-media">
+              <img src="assets/images/dr-sarah-jenkins.jpg" alt="Dr. Sarah Jenkins, MD - Urological Surgeon">
+              <span class="doctor-badge-exp">18+ Yrs Exp</span>
+            </div>
+            <div class="doctor-info">
+              <h4>Dr. Sarah Jenkins, MD</h4>
+              <span class="doctor-role">Senior Urological & Pelvic Surgeon</span>
+              <p class="doctor-creds">Johns Hopkins Urological Fellowship. Expert in minimally invasive kidney stone laser treatment and bladder reconstruction.</p>
+              <div class="doctor-card-footer">
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-doctor="Dr. Sarah Jenkins, MD">Book Consult</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Doctor 4 -->
+          <article class="doctor-card">
+            <div class="doctor-media">
+              <img src="assets/images/dr-marcus-sterling.jpg" alt="Dr. Marcus Sterling, MD - Microsurgeon">
+              <span class="doctor-badge-exp">15+ Yrs Exp</span>
+            </div>
+            <div class="doctor-info">
+              <h4>Dr. Marcus Sterling, MD</h4>
+              <span class="doctor-role">Microsurgeon & Male Fertility Lead</span>
+              <p class="doctor-creds">Stanford Fellowship in Urological Microsurgery. Specialist in no-scalpel vasectomy, vasectomy reversal, and male fertility.</p>
+              <div class="doctor-card-footer">
+                <button type="button" class="btn btn-sm btn-primary btn-book-appointment" data-doctor="Dr. Marcus Sterling, MD">Book Consult</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Patient Testimonials & Fast Appointment CTA -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-badge">Verified Patient Experiences</span>
+          <h2>What Our Patients Say</h2>
+          <p class="section-subtitle">Real feedback from men who reclaimed their energy, confidence, and urinary health at Vanguard Clinic.</p>
+        </div>
+
+        <div class="testimonials-grid" style="margin-bottom: 4rem;">
+          <div class="testimonial-card">
+            <div class="stars-row">★★★★★</div>
+            <p class="testimonial-quote">"After struggling with BPH for 4 years, Dr. Rossi performed the Rezūm procedure. Within 3 weeks my symptoms vanished completely. Absolute professionalism and total discretion throughout."</p>
+            <div class="patient-profile">
+              <div class="patient-avatar-badge">RM</div>
+              <div class="patient-details">
+                <h5 class="patient-name">Robert M., 58</h5>
+                <p class="patient-treatment">Prostate Care Patient</p>
+                <span class="verified-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified Patient</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars-row">★★★★★</div>
+            <p class="testimonial-quote">"Dr. Chen's TRT protocol changed my life. I went from constant brain fog and fatigue to feeling energized and sharp like I was in my 20s. The blood monitoring and care are second to none."</p>
+            <div class="patient-profile">
+              <div class="patient-avatar-badge">JS</div>
+              <div class="patient-details">
+                <h5 class="patient-name">James S., 46</h5>
+                <p class="patient-treatment">Hormone Optimization Patient</p>
+                <span class="verified-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified Patient</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="stars-row">★★★★★</div>
+            <p class="testimonial-quote">"The no-scalpel vasectomy with Dr. Sterling was literally over in 15 minutes with zero pain. The private suite made the experience completely stress-free. Highly recommended!"</p>
+            <div class="patient-profile">
+              <div class="patient-avatar-badge">DK</div>
+              <div class="patient-details">
+                <h5 class="patient-name">David K., 39</h5>
+                <p class="patient-treatment">Microsurgery Patient</p>
+                <span class="verified-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified Patient</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Banner Box -->
+        <div class="cta-banner">
+          <div class="cta-grid">
+            <div class="cta-left">
+              <h2>Schedule Your Confidential Consultation Today</h2>
+              <p>Take proactive control of your urological health and vitality with our board-certified specialists. Same-week appointments available.</p>
+              <div class="cta-features">
+                <span class="cta-feature-pill">✓ 100% Confidential</span>
+                <span class="cta-feature-pill">✓ Board-Certified Doctors</span>
+                <span class="cta-feature-pill">✓ Most Major Insurances Accepted</span>
+              </div>
+            </div>
+            <div class="cta-right text-center">
+              <button type="button" class="btn btn-white btn-lg btn-book-appointment" style="font-weight: 700;">
+                Book Priority Appointment
+              </button>
+              <p style="font-size: 0.85rem; color: #CBD5E1; margin-top: 0.75rem;">Or call directly: <a href="tel:+18005558765" style="color: #38BDF8; font-weight: 600;">+1 (800) 555-8765</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z"></path>
+                <path d="M12 7v10M7 12h10"></path>
+              </svg>
+            </div>
+            <div class="brand-logo-text">
+              <span class="brand-title" style="color: #FFFFFF;">VANGUARD</span>
+              <span class="brand-subtitle" style="color: #38BDF8;">Urology & Men's Health</span>
+            </div>
+          </a>
+          <p>
+            Leading center for advanced urological surgery, minimally invasive prostate care, and specialized men's hormone and vitality medicine.
+          </p>
+          <div class="footer-badges-row">
+            <span class="accreditation-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              HIPAA Compliant
+            </span>
+            <span class="accreditation-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              ABU Board Certified
+            </span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html">Home 1 (General Urology)</a></li>
+            <li class="footer-link-item"><a href="home-2.html">Home 2 (Men's Health)</a></li>
+            <li class="footer-link-item"><a href="about.html">About Our Clinic</a></li>
+            <li class="footer-link-item"><a href="services.html">Clinical Services</a></li>
+            <li class="footer-link-item"><a href="blog.html">Men's Health Blog</a></li>
+            <li class="footer-link-item"><a href="contact.html">Contact & Location</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Specialized Care -->
+        <div>
+          <h4 class="footer-heading">Specialized Care</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="service-details.html#prostate">Prostate & BPH Laser Care</a></li>
+            <li class="footer-link-item"><a href="service-details.html#trt">Testosterone Therapy (TRT)</a></li>
+            <li class="footer-link-item"><a href="service-details.html#ed">Acoustic Wave ED Therapy</a></li>
+            <li class="footer-link-item"><a href="service-details.html#vasectomy">No-Scalpel Vasectomy</a></li>
+            <li class="footer-link-item"><a href="service-details.html#kidney">Kidney Stone Laser Removal</a></li>
+            <li class="footer-link-item"><a href="service-details.html#fertility">Male Reproductive Medicine</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Clinic Info -->
+        <div>
+          <h4 class="footer-heading">Clinic Contact</h4>
+          <div class="footer-contact-list">
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>450 Lexington Ave, Suite 1800, New York, NY 10017</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+1 (800) 555-8765</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>care@vanguardmenshealth.com</span>
+            </div>
+          </div>
+
+          <div class="footer-social-row">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-flex">
+          <p>© 2026 Vanguard Urology & Men's Health Clinic. All rights reserved. Strictly confidential care.</p>
+          <div class="footer-legal-links">
+            <a href="login.html">Patient Portal</a>
+            <a href="#privacy-modal" data-open-modal="privacy">Privacy Policy</a>
+            <a href="#hipaa-modal" data-open-modal="hipaa">HIPAA Statement</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Global Appointment Wizard Modal -->
+  <div class="modal-backdrop" id="appointment-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-title">Book a Confidential Consultation</h3>
+          <p>Private & direct scheduling with our board-certified specialists.</p>
+        </div>
+        <button type="button" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="appointment-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="modal-service">Clinical Department / Service <span class="required-star">*</span></label>
+              <select class="form-control" id="modal-service" required>
+                <option value="">Select Treatment</option>
+                <option value="Prostate & BPH Laser Care">Prostate & BPH Laser Care</option>
+                <option value="Testosterone Therapy (TRT)">Testosterone Therapy (TRT)</option>
+                <option value="Acoustic Wave ED Therapy">Acoustic Wave ED Therapy</option>
+                <option value="Kidney Stone Laser Removal">Kidney Stone Laser Removal</option>
+                <option value="No-Scalpel Vasectomy">No-Scalpel Vasectomy</option>
+                <option value="Male Reproductive Medicine">Male Reproductive Medicine</option>
+                <option value="Executive Male Health Screening">Executive Male Health Screening</option>
+                <option value="Men's Vitality Check">Men's Vitality Check</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="modal-doctor">Preferred Specialist <span class="required-star">*</span></label>
+              <select class="form-control" id="modal-doctor" required>
+                <option value="">Select Specialist</option>
+                <option value="First Available Specialist">First Available Specialist</option>
+                <option value="Dr. Anthony Rossi, MD">Dr. Anthony Rossi, MD (Chief Robotic Urologist)</option>
+                <option value="Dr. David Chen, MD, PhD">Dr. David Chen, MD, PhD (Director of Andrology & TRT)</option>
+                <option value="Dr. Sarah Jenkins, MD">Dr. Sarah Jenkins, MD (Urological Surgeon)</option>
+                <option value="Dr. Marcus Sterling, MD">Dr. Marcus Sterling, MD (Microsurgeon & Andrology)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="modal-date">Preferred Date <span class="required-star">*</span></label>
+              <input type="date" class="form-control" id="modal-date" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="modal-time">Preferred Time Slot <span class="required-star">*</span></label>
+              <select class="form-control" id="modal-time" required>
+                <option value="">Select Time Slot</option>
+                <option value="Morning (8:00 AM - 12:00 PM)">Morning (8:00 AM - 12:00 PM)</option>
+                <option value="Afternoon (12:00 PM - 4:00 PM)">Afternoon (12:00 PM - 4:00 PM)</option>
+                <option value="Late Afternoon (4:00 PM - 7:00 PM)">Late Afternoon (4:00 PM - 7:00 PM)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="modal-name">Full Name <span class="required-star">*</span></label>
+              <input type="text" class="form-control" id="modal-name" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="modal-phone">Confidential Phone Number <span class="required-star">*</span></label>
+              <input type="tel" class="form-control" id="modal-phone" placeholder="(555) 000-0000" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label" for="modal-email">Email Address <span class="required-star">*</span></label>
+              <input type="email" class="form-control" id="modal-email" placeholder="patient@example.com" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label" for="modal-notes">Additional Message / Reason for Consultation</label>
+              <textarea class="form-control" id="modal-notes" placeholder="Briefly describe your symptoms, primary concerns, or questions..." rows="2"></textarea>
+            </div>
+
+            <div class="form-group full-width" style="margin-top: 0.5rem;">
+              <button type="submit" id="btn-submit-appointment" class="btn btn-primary" style="width: 100%; padding-block: 0.9rem; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Confirm & Request Consultation</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" aria-label="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <!-- Master JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scheduled electronic health system maintenance at Vanguard Urology & Men's Health Clinic. Physical clinic and telephone triage remain fully operational.">
+  <title>Scheduled System Maintenance | Vanguard Urology</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body style="background: radial-gradient(circle at 50% 30%, rgba(2, 132, 199, 0.12) 0%, transparent 70%), var(--bg-body);">
+
+  <div class="maintenance-layout">
+    <div class="maintenance-card">
+      
+      <!-- Top Clinic Logo & Controls -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z"></path>
+            <path d="M12 7v10M7 12h10"></path>
+          </svg>
+          </div>
+          <div class="brand-logo-text">
+            <span class="brand-title">VANGUARD</span>
+            <span class="brand-subtitle">Urology & Men's Health</span>
+          </div>
+        </a>
+
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button type="button" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme" style="background: var(--bg-alt); border: 1px solid var(--border-color); border-radius: var(--radius-full); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+          <button type="button" class="rtl-toggle-btn" aria-label="Toggle RTL Mode" title="Toggle RTL" style="background: var(--bg-alt); border: 1px solid var(--border-color); border-radius: var(--radius-full); padding: 0.35rem 0.65rem; font-size: 0.75rem; font-weight: 700; cursor: pointer; color: var(--text-main);">RTL</button>
+        </div>
+      </div>
+
+      <!-- Clinical Visual Indicator -->
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--amber-soft); color: var(--amber); padding: 0.4rem 1rem; border-radius: var(--radius-full); font-size: 0.825rem; font-weight: 700; margin-bottom: 1.5rem;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--amber); display: inline-block; animation: pulse 2s infinite;"></span>
+        Scheduled Telehealth & Electronic Records Upgrade
+      </div>
+
+      <h1 style="font-size: 2.15rem; margin-bottom: 1rem; line-height: 1.25;">
+        Enhancing Our Secure <span class="text-highlight">Patient Telehealth Portal</span>
+      </h1>
+
+      <p style="color: var(--text-muted); max-width: 560px; margin-inline: auto; margin-bottom: 2rem; line-height: 1.6; font-size: 0.95rem;">
+        Our engineering and HIPAA security team is performing a scheduled infrastructure upgrade to bring you enhanced telehealth video consultations, real-time biomarker graphing, and faster prescription fulfillment.
+      </p>
+
+      <!-- Live Countdown Timer -->
+      <div class="countdown-grid">
+        <div class="countdown-box">
+          <div class="countdown-num" id="count-days">03</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="count-hours">06</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="count-mins">42</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-num" id="count-secs">18</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+
+      <!-- Notification Signup Form -->
+      <div style="background: var(--bg-alt); border-radius: var(--radius-lg); padding: 1.75rem; border: 1px solid var(--border-color); margin-bottom: 2rem;">
+        <h4 style="font-size: 1.05rem; margin-bottom: 0.35rem;">Be Notified When Portal Access Resumes</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">We will send a private confirmation email as soon as portal maintenance concludes.</p>
+        
+        <form id="maintenance-notify-form" style="display: flex; gap: 0.75rem; max-width: 480px; margin-inline: auto; flex-wrap: wrap;">
+          <input type="email" class="form-control" placeholder="Enter confidential email..." required style="flex: 1; min-width: 220px;">
+          <button type="submit" class="btn btn-primary">Notify Me</button>
+        </form>
+      </div>
+
+      <!-- Physical Clinic & Phone Notice -->
+      <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 2rem; text-align: left; display: flex; align-items: center; gap: 1rem;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--emerald-soft); color: var(--emerald); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <div style="font-size: 0.875rem;">
+          <strong style="color: var(--text-heading); display: block; margin-bottom: 0.2rem;">Physical Clinic & Telephone Lines Remain 100% Active</strong>
+          <span style="color: var(--text-muted);">In-person surgeries, diagnostic appointments, and emergency triage are proceeding normally at 450 Lexington Ave.</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Return to Homepage</span>
+        </a>
+        <a href="tel:+18005558765" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>Call Confidential Line</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Master JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Clinical Administration Portal for Vanguard Urology & Men's Health Clinic. Secure management of patient consultations, surgical schedules, diagnostic reports, and encrypted communications.">
+  <title>Clinic Administration & Telehealth Dashboard | Vanguard Urology</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body style="background-color: var(--bg-body);">
+
+  <div class="admin-wrapper">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar" aria-label="Admin Navigation">
+      <div style="padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+        <a href="index.html" class="brand-logo">
+          <div class="brand-logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z"></path>
+            <path d="M12 7v10M7 12h10"></path>
+          </svg>
+          </div>
+          <div class="brand-logo-text">
+            <span class="brand-title" style="color: #FFF; font-size: 1.15rem;">VANGUARD</span>
+            <span class="brand-subtitle" style="color: #38BDF8;">Admin Console</span>
+          </div>
+        </a>
+      </div>
+
+      <nav style="display: flex; flex-direction: column; gap: 0.25rem; flex-grow: 1;">
+        <div class="admin-nav-item active" data-panel="panel-overview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Overview / Analytics</span>
+        </div>
+        <div class="admin-nav-item" data-panel="panel-users">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Patients & Users</span>
+        </div>
+        <div class="admin-nav-item" data-panel="panel-orders">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Appointments & Orders</span>
+        </div>
+        <div class="admin-nav-item" data-panel="panel-messages">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>Messages & Inquiries</span>
+        </div>
+        <div class="admin-nav-item" data-panel="panel-reports">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span>Statistics & Reports</span>
+        </div>
+        <div class="admin-nav-item" data-panel="panel-settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Clinic Settings</span>
+        </div>
+      </nav>
+
+      <div style="padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.08); display: flex; flex-direction: column; gap: 0.75rem;">
+        <a href="index.html" class="btn btn-outline-light" style="width: 100%; font-size: 0.85rem; padding: 0.6rem; border-color: rgba(255, 255, 255, 0.2);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          <span>Return to Live Site</span>
+        </a>
+        <a href="login.html" class="btn btn-secondary" style="width: 100%; font-size: 0.85rem; padding: 0.6rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span>Log Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+      
+      <!-- Top Bar -->
+      <header class="admin-topbar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <h2 style="font-size: 1.25rem; font-family: var(--font-heading);">Clinic Administration</h2>
+          <span class="badge" style="background: var(--emerald-soft); color: var(--emerald); font-size: 0.75rem; font-weight: 700;">● System Online (HIPAA Encrypted)</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <!-- Theme Switcher -->
+          <button type="button" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme" style="background: var(--bg-alt); border: 1px solid var(--border-color); border-radius: var(--radius-full); width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-main);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+
+          <!-- RTL Switcher -->
+          <button type="button" class="rtl-toggle-btn" aria-label="Toggle RTL Mode" title="Toggle RTL" style="background: var(--bg-alt); border: 1px solid var(--border-color); border-radius: var(--radius-full); padding: 0.35rem 0.75rem; font-size: 0.75rem; font-weight: 700; cursor: pointer; color: var(--text-main);">RTL</button>
+
+          <!-- User Avatar -->
+          <div style="display: flex; align-items: center; gap: 0.65rem; border-left: 1px solid var(--border-color); padding-left: 1rem;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: #FFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">
+              AR
+            </div>
+            <div style="line-height: 1.2;">
+              <span style="font-size: 0.85rem; font-weight: 700; display: block; color: var(--text-heading);">Dr. Anthony Rossi, MD</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Medical Director</span>
+            </div>
+          </div>
+      </header>
+
+      <!-- Mobile Admin Navigation Bar (Visible on Tablets & Mobile) -->
+      <nav class="admin-mobile-nav" aria-label="Mobile Admin Navigation">
+        <button type="button" class="btn btn-sm btn-outline active" data-panel="panel-overview">Overview</button>
+        <button type="button" class="btn btn-sm btn-outline" data-panel="panel-users">Patients</button>
+        <button type="button" class="btn btn-sm btn-outline" data-panel="panel-orders">Appointments</button>
+        <button type="button" class="btn btn-sm btn-outline" data-panel="panel-messages">Messages</button>
+        <button type="button" class="btn btn-sm btn-outline" data-panel="panel-reports">Reports</button>
+        <button type="button" class="btn btn-sm btn-outline" data-panel="panel-settings">Settings</button>
+        <a href="index.html" class="btn btn-sm btn-primary">Live Site</a>
+      </nav>
+
+      <!-- Dynamic Panel Content Container -->
+      <div class="admin-content">
+
+        <!-- PANEL 1: OVERVIEW / ANALYTICS -->
+        <div class="admin-panel-section" id="panel-overview">
+          <div class="stat-card-grid">
+            <div class="stat-card">
+              <div>
+                <p style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Active Patients</p>
+                <h3 style="font-size: 1.85rem; margin-block: 0.25rem; font-family: var(--font-heading);">1,482</h3>
+                <span style="font-size: 0.75rem; color: var(--emerald); font-weight: 700;">+14.2% from last month</span>
+              </div>
+              <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div>
+                <p style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Today's Consultations</p>
+                <h3 style="font-size: 1.85rem; margin-block: 0.25rem; font-family: var(--font-heading);">19</h3>
+                <span style="font-size: 0.75rem; color: var(--accent); font-weight: 700;">4 Procedures Scheduled</span>
+              </div>
+              <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--emerald-soft); color: var(--emerald); display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div>
+                <p style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Surgical Suite Volume</p>
+                <h3 style="font-size: 1.85rem; margin-block: 0.25rem; font-family: var(--font-heading);">92%</h3>
+                <span style="font-size: 0.75rem; color: var(--emerald); font-weight: 700;">Optimal Utilization</span>
+              </div>
+              <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: var(--amber-soft); color: var(--amber); display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div>
+                <p style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">Patient Satisfaction</p>
+                <h3 style="font-size: 1.85rem; margin-block: 0.25rem; font-family: var(--font-heading);">99.4%</h3>
+                <span style="font-size: 0.75rem; color: var(--emerald); font-weight: 700;">520+ Reviews</span>
+              </div>
+              <div style="width: 48px; height: 48px; border-radius: var(--radius-md); background: rgba(13, 148, 136, 0.15); color: var(--teal); display: flex; align-items: center; justify-content: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Appointments Table -->
+          <div class="data-table-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+              <div>
+                <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">Today's Clinical Appointment Schedule</h3>
+                <p style="font-size: 0.825rem; color: var(--text-muted);">Real-time check-in and consultation tracker</p>
+              </div>
+              <button class="btn btn-sm btn-primary btn-book-appointment">Add New Booking</button>
+            </div>
+
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Patient Name & Ref</th>
+                  <th>Service / Treatment</th>
+                  <th>Assigned Specialist</th>
+                  <th>Time Slot</th>
+                  <th>Status</th>
+                  <th>Action Controls</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Michael Vance</strong><br>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">#VMH-992140</span>
+                  </td>
+                  <td>Rezūm Water Vapor Therapy</td>
+                  <td>Dr. Anthony Rossi, MD</td>
+                  <td>09:00 AM - 10:00 AM</td>
+                  <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-outline-light btn-status-action" data-action="confirm" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Confirm</button>
+                    <button type="button" class="btn btn-sm btn-secondary btn-status-action" data-action="cancel" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Cancel</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Robert Sterling</strong><br>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">#VMH-882310</span>
+                  </td>
+                  <td>Testosterone Panel & TRT Review</td>
+                  <td>Dr. David Chen, MD, PhD</td>
+                  <td>10:30 AM - 11:15 AM</td>
+                  <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-outline-light btn-status-action" data-action="confirm" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Confirm</button>
+                    <button type="button" class="btn btn-sm btn-secondary btn-status-action" data-action="cancel" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Cancel</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>James Caldwell</strong><br>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">#VMH-774129</span>
+                  </td>
+                  <td>Acoustic Shockwave Session #3</td>
+                  <td>Dr. Marcus Sterling, MD</td>
+                  <td>01:00 PM - 01:45 PM</td>
+                  <td><span class="status-badge status-pending">Pending Triage</span></td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-primary btn-status-action" data-action="confirm" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Confirm</button>
+                    <button type="button" class="btn btn-sm btn-secondary btn-status-action" data-action="cancel" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Cancel</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>David H. Miller</strong><br>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">#VMH-665201</span>
+                  </td>
+                  <td>Kidney Stone Laser Follow-up</td>
+                  <td>Dr. Sarah Jenkins, MD</td>
+                  <td>02:30 PM - 03:00 PM</td>
+                  <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-outline-light btn-status-action" data-action="confirm" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Confirm</button>
+                    <button type="button" class="btn btn-sm btn-secondary btn-status-action" data-action="cancel" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">Cancel</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 2: USERS / PATIENTS -->
+        <div class="admin-panel-section" id="panel-users" style="display: none;">
+          <div class="data-table-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+              <div>
+                <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">Registered Clinic Patients</h3>
+                <p style="font-size: 0.825rem; color: var(--text-muted);">Search and view medical charts & consent files</p>
+              </div>
+              <div class="search-input-box" style="min-width: 240px;">
+                <input type="text" placeholder="Search patient name, DOB, or ID...">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+            </div>
+
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Patient ID</th>
+                  <th>Full Name</th>
+                  <th>Age / DOB</th>
+                  <th>Primary Doctor</th>
+                  <th>Active Care Plan</th>
+                  <th>HIPAA Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>VMH-99214</strong></td>
+                  <td>Michael Vance</td>
+                  <td>58 (1968-04-12)</td>
+                  <td>Dr. Rossi</td>
+                  <td>Precision Prostate Laser</td>
+                  <td><span class="badge" style="background: var(--emerald-soft); color: var(--emerald);">Verified</span></td>
+                </tr>
+                <tr>
+                  <td><strong>VMH-88231</strong></td>
+                  <td>Robert Sterling</td>
+                  <td>44 (1982-09-24)</td>
+                  <td>Dr. Chen</td>
+                  <td>Essential Vitality & TRT</td>
+                  <td><span class="badge" style="background: var(--emerald-soft); color: var(--emerald);">Verified</span></td>
+                </tr>
+                <tr>
+                  <td><strong>VMH-77412</strong></td>
+                  <td>James Caldwell</td>
+                  <td>51 (1975-01-18)</td>
+                  <td>Dr. Sterling</td>
+                  <td>Executive Longevity Suite</td>
+                  <td><span class="badge" style="background: var(--emerald-soft); color: var(--emerald);">Verified</span></td>
+                </tr>
+                <tr>
+                  <td><strong>VMH-66520</strong></td>
+                  <td>David H. Miller</td>
+                  <td>39 (1987-11-05)</td>
+                  <td>Dr. Jenkins</td>
+                  <td>Kidney Laser Recovery</td>
+                  <td><span class="badge" style="background: var(--emerald-soft); color: var(--emerald);">Verified</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 3: APPOINTMENTS & ORDERS -->
+        <div class="admin-panel-section" id="panel-orders" style="display: none;">
+          <div class="data-table-card">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">Medication & Diagnostic Orders</h3>
+            <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 1.25rem;">Prescription refills and lab dispatch monitoring</p>
+
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Order Ref</th>
+                  <th>Patient</th>
+                  <th>Item / Protocol</th>
+                  <th>Prescribing Doctor</th>
+                  <th>Pharmacy Dispatch</th>
+                  <th>Delivery Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#ORD-7712</td>
+                  <td>Robert Sterling</td>
+                  <td>Cypionate 200mg/mL + SubQ Kit</td>
+                  <td>Dr. David Chen</td>
+                  <td>Sands Point Specialty Rx</td>
+                  <td><span class="status-badge status-confirmed">Dispatched</span></td>
+                </tr>
+                <tr>
+                  <td>#ORD-7713</td>
+                  <td>Thomas Bradley</td>
+                  <td>Comprehensive 32-Biomarker Lab Kit</td>
+                  <td>Dr. David Chen</td>
+                  <td>LabCorp Diagnostics</td>
+                  <td><span class="status-badge status-confirmed">Delivered</span></td>
+                </tr>
+                <tr>
+                  <td>#ORD-7714</td>
+                  <td>Michael Vance</td>
+                  <td>Post-Surgical Ciprofloxacin Kit</td>
+                  <td>Dr. Anthony Rossi</td>
+                  <td>Lexington Plaza Pharmacy</td>
+                  <td><span class="status-badge status-confirmed">Ready for Pickup</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- PANEL 4: MESSAGES & INQUIRIES -->
+        <div class="admin-panel-section" id="panel-messages" style="display: none;">
+          <div class="data-table-card">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">Confidential Patient Communications</h3>
+            <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 1.5rem;">Encrypted clinical messages and triage inquiries</p>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span style="font-weight: 700; color: var(--text-heading);">Robert Sterling (#VMH-88231)</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Today at 10:15 AM</span>
+                </div>
+                <p style="font-size: 0.875rem; color: var(--text-main); margin-bottom: 0.75rem;">
+                  "Dr. Chen, I received my quarterly blood panel results on the portal. Total testosterone is at 780 ng/dL with optimal free T. Energy levels are great. Should I maintain the current weekly dosing?"
+                </p>
+                <button class="btn btn-sm btn-primary" onclick="alert('Quick Reply Modal opened for Robert Sterling');">Reply Securely</button>
+              </div>
+
+              <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <span style="font-weight: 700; color: var(--text-heading);">William Hayes (#VMH-11048)</span>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">Yesterday at 4:30 PM</span>
+                </div>
+                <p style="font-size: 0.875rem; color: var(--text-main); margin-bottom: 0.75rem;">
+                  "Hello, I am scheduling a consultation for Rezūm water vapor treatment next week. Does Dr. Rossi require an ultrasound done prior to arrival or in-office?"
+                </p>
+                <button class="btn btn-sm btn-primary" onclick="alert('Quick Reply Modal opened for William Hayes');">Reply Securely</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL 5: STATISTICS & REPORTS -->
+        <div class="admin-panel-section" id="panel-reports" style="display: none;">
+          <div class="data-table-card">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">Clinical Volume & Quality Metrics</h3>
+            <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 1.5rem;">Quarterly performance and patient clinical outcomes</p>
+
+            <div class="highlight-grid">
+              <div class="highlight-card">
+                <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">TRT Protocol Retention</h4>
+                <p style="font-size: 2rem; font-weight: 800; color: var(--emerald); font-family: var(--font-heading); margin-bottom: 0.25rem;">96.8%</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Consistent 12-month patient adherence</p>
+              </div>
+              <div class="highlight-card">
+                <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Minimally Invasive Success</h4>
+                <p style="font-size: 2rem; font-weight: 800; color: var(--accent); font-family: var(--font-heading); margin-bottom: 0.25rem;">99.2%</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Zero major surgical complications</p>
+              </div>
+              <div class="highlight-card">
+                <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Average Patient Wait Time</h4>
+                <p style="font-size: 2rem; font-weight: 800; color: var(--teal); font-family: var(--font-heading); margin-bottom: 0.25rem;">4.5 Min</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Direct concierge rooming</p>
+              </div>
+              <div class="highlight-card">
+                <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">Insurance Superbill Success</h4>
+                <p style="font-size: 2rem; font-weight: 800; color: var(--amber); font-family: var(--font-heading); margin-bottom: 0.25rem;">84.6%</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">PPO out-of-network reimbursement rate</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL 6: CLINIC SETTINGS -->
+        <div class="admin-panel-section" id="panel-settings" style="display: none;">
+          <div class="data-table-card">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.2rem;">Practice Configuration & Security</h3>
+            <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 1.5rem;">Manage clinic hours, on-call physicians, and notification preferences</p>
+
+            <form id="admin-settings-form" style="display: flex; flex-direction: column; gap: 1.25rem; max-width: 600px;">
+              <div class="form-group">
+                <label class="form-label" for="admin-location">Primary Clinic Location <span class="required-star">*</span></label>
+                <input type="text" class="form-control" id="admin-location" value="450 Lexington Ave, Suite 1800, New York, NY 10017" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="admin-phone">Confidential Helpline Routing <span class="required-star">*</span></label>
+                <input type="tel" class="form-control" id="admin-phone" value="+1 (800) 555-8765" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="admin-doctor">On-Call Attending Physician <span class="required-star">*</span></label>
+                <select class="form-control" id="admin-doctor" required>
+                  <option value="Dr. Anthony Rossi, MD" selected>Dr. Anthony Rossi, MD (Chief Urologist)</option>
+                  <option value="Dr. David Chen, MD, PhD">Dr. David Chen, MD, PhD (Andrology)</option>
+                  <option value="Dr. Sarah Jenkins, MD">Dr. Sarah Jenkins, MD (Surgical)</option>
+                  <option value="Dr. Marcus Sterling, MD">Dr. Marcus Sterling, MD (Microsurgeon)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                  <input type="checkbox" checked style="accent-color: var(--accent);">
+                  <span>Automated 24h SMS appointment confirmation reminders</span>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                  <input type="checkbox" checked style="accent-color: var(--accent);">
+                  <span>HIPAA 2FA multi-factor authentication enforced on staff logins</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Save Configuration</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Master JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
