@@ -56,6 +56,12 @@
         <div class="nav-item">
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
+        <div class="nav-item">
+          <a href="login.html" class="nav-link nav-auth-link" aria-label="Patient Portal Login and Signup">
+            <svg class="nav-auth-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Login / Signup</span>
+          </a>
+        </div>
       </nav>
 
       <!-- Header Action Controls & Primary CTA -->
@@ -126,6 +132,12 @@
         <div class="mobile-nav-item">
           <a href="contact.html" class="mobile-nav-link">Contact</a>
         </div>
+        <div class="mobile-nav-item">
+          <a href="login.html" class="mobile-nav-link nav-auth-link">
+            <svg class="nav-auth-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Login / Signup</span>
+          </a>
+        </div>
       </div>
 
       <div class="mobile-drawer-footer">
@@ -172,12 +184,12 @@
         </div>
 
         <!-- Key Takeaways Box -->
-        <div id="blog-takeaways-container" style="background: var(--bg-alt); padding: 2rem; border-radius: 16px; border-left: 4px solid var(--accent); margin-bottom: 2.5rem;">
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Key Takeaways:</h3>
-          <ul class="service-features-list" id="blog-takeaways-list">
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Total vs. Free Testosterone:</strong> Total T alone is misleading; free and bioavailable testosterone dictate true physiological cellular response.</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Cardiovascular Safety:</strong> Major clinical trials (including the TRAVERSE trial) demonstrate that properly monitored TRT does not increase adverse cardiovascular events.</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Micro-Dosing Advantage:</strong> Twice-weekly subcutaneous administration avoids roller-coaster hormonal peaks and minimizes estrogen conversion.</li>
+        <div id="blog-takeaways-container" class="blog-takeaways-box">
+          <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--text-heading); font-weight: 700;">Key Takeaways:</h3>
+          <ul class="blog-takeaways-list" id="blog-takeaways-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><div class="takeaway-text"><strong>Total vs. Free Testosterone:</strong> Total T alone is misleading; free and bioavailable testosterone dictate true physiological cellular response.</div></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><div class="takeaway-text"><strong>Cardiovascular Safety:</strong> Major clinical trials (including the TRAVERSE trial) demonstrate that properly monitored TRT does not increase adverse cardiovascular events.</div></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><div class="takeaway-text"><strong>Micro-Dosing Advantage:</strong> Twice-weekly subcutaneous administration avoids roller-coaster hormonal peaks and minimizes estrogen conversion.</div></li>
           </ul>
         </div>
 
@@ -204,7 +216,7 @@
             <li>Sensitive Estradiol (LC/MS-MS)</li>
             <li>Luteinizing Hormone (LH) & Follicle-Stimulating Hormone (FSH)</li>
             <li>Complete Blood Count (CBC) with Hematocrit & Hemoglobin</li>
-            <li>Comprehensive Metabolic Panel & Lipid Lipid Subfractions</li>
+            <li>Comprehensive Metabolic Panel & Lipid Subfractions</li>
             <li>Prostate-Specific Antigen (PSA) & Free PSA Ratio</li>
           </ul>
 
@@ -222,6 +234,22 @@
           </p>
         </div>
 
+        <!-- SECTION 2B: Patient Testimonial Bar (Consistent with index.html testimonial-card) -->
+        <div id="blog-testimonial-container" class="blog-testimonial-section">
+          <div class="testimonial-card">
+            <div class="stars-row">★★★★★</div>
+            <p class="testimonial-quote">"Dr. Chen's TRT protocol changed my life. I went from constant brain fog and fatigue to feeling energized and sharp like I was in my 20s. The blood monitoring and care are second to none."</p>
+            <div class="patient-profile">
+              <div class="patient-avatar-badge">JS</div>
+              <div class="patient-details">
+                <h5 class="patient-name">James S., 46</h5>
+                <p class="patient-treatment">Hormone Optimization Patient</p>
+                <span class="verified-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified Patient</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- SECTION 3: Author Bio & Reviewer Verification -->
         <div id="blog-author-card" style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: var(--radius-xl); margin-top: 3.5rem; display: flex; align-items: center; gap: 1.5rem; box-shadow: var(--shadow-sm);">
           <img id="blog-author-image" src="assets/images/dr-david-chen.jpg" alt="Dr. David Chen" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
@@ -235,33 +263,47 @@
 
         <!-- SECTION 4: Interactive Comments & Discussion -->
         <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-color);">
-          <h3 id="blog-comments-heading" style="margin-bottom: 1.5rem;">Patient Comments & Inquiries (3)</h3>
+          <h3 id="blog-comments-heading" style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--text-heading);">Patient Comments (<span id="blog-comments-count">2</span>)</h3>
           
           <div id="blog-comments-list" style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 3rem;">
-            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px;">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <strong>Michael B.</strong>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">2 days ago</span>
+            <div class="blog-comment-card">
+              <div class="blog-comment-header">
+                <div class="blog-comment-author-wrap">
+                  <div class="patient-avatar-badge" style="width: 38px; height: 38px; min-width: 38px; min-height: 38px; font-size: 0.85rem;">MB</div>
+                  <div>
+                    <h5 style="margin: 0; font-size: 0.95rem; font-weight: 700; color: var(--text-heading);">Michael B.</h5>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">2 days ago</span>
+                  </div>
+                </div>
               </div>
-              <p style="font-size: 0.925rem; color: var(--text-muted); margin: 0;">Does micro-dosing subcutaneously really keep estrogen levels in check without taking anastrozole?</p>
-              <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-alt); border-radius: 8px; border-left: 2px solid var(--accent);">
-                <strong style="font-size: 0.85rem; color: var(--accent);">Dr. David Chen (Author):</strong>
-                <p style="font-size: 0.875rem; margin: 0; color: var(--text-main);">Yes, in over 85% of our patients, dividing doses into 2-3 smaller weekly administrations prevents the large testosterone surges that trigger excessive aromatase enzyme conversion, eliminating the need for AI medication.</p>
+              <p class="blog-comment-text">Does micro-dosing subcutaneously really keep estrogen levels in check without taking anastrozole?</p>
+              <div class="blog-comment-reply">
+                <div class="blog-comment-reply-author">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 10 20 15 15 20"></polyline><path d="M4 4v7a4 4 0 0 0 4 4h12"></path></svg>
+                  <span>Dr. David Chen (Author):</span>
+                </div>
+                <p class="blog-comment-reply-text">Yes, in over 85% of our patients, dividing doses into 2-3 smaller weekly administrations prevents the large testosterone surges that trigger excessive aromatase enzyme conversion, eliminating the need for AI medication.</p>
               </div>
             </div>
 
-            <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px;">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                <strong>Edward K.</strong>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">5 days ago</span>
+            <div class="blog-comment-card">
+              <div class="blog-comment-header">
+                <div class="blog-comment-author-wrap">
+                  <div class="patient-avatar-badge" style="width: 38px; height: 38px; min-width: 38px; min-height: 38px; font-size: 0.85rem;">EK</div>
+                  <div>
+                    <h5 style="margin: 0; font-size: 0.95rem; font-weight: 700; color: var(--text-heading);">Edward K.</h5>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">5 days ago</span>
+                  </div>
+                </div>
               </div>
-              <p style="font-size: 0.925rem; color: var(--text-muted); margin: 0;">Great article. Finally someone explained the difference between total and free testosterone clearly.</p>
+              <p class="blog-comment-text">Great article. Finally someone explained the difference between total and free testosterone clearly.</p>
             </div>
           </div>
 
-          <!-- Comment Form -->
-          <div style="background: var(--bg-alt); padding: 2rem; border-radius: 16px;">
-            <h4 style="margin-bottom: 1rem;">Ask a Medical Inquiry</h4>
+          <!-- Patient Enquiries Form -->
+          <div style="background: var(--bg-alt); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color);">
+            <h4 id="blog-enquiry-heading" style="margin-bottom: 0.5rem; font-size: 1.25rem; color: var(--text-heading);">Patient Enquiries</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Have a question about this treatment protocol? Submit a confidential inquiry directly to our clinical specialists.</p>
             <form id="blog-inquiry-form">
               <div class="form-grid">
                 <div class="form-group">

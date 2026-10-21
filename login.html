@@ -56,6 +56,12 @@
         <div class="nav-item">
           <a href="contact.html" class="nav-link">Contact</a>
         </div>
+        <div class="nav-item">
+          <a href="login.html" class="nav-link nav-auth-link active" aria-label="Patient Portal Login and Signup">
+            <svg class="nav-auth-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Login / Signup</span>
+          </a>
+        </div>
       </nav>
 
       <!-- Header Action Controls & Primary CTA -->
@@ -126,6 +132,12 @@
         <div class="mobile-nav-item">
           <a href="contact.html" class="mobile-nav-link">Contact</a>
         </div>
+        <div class="mobile-nav-item">
+          <a href="login.html" class="mobile-nav-link nav-auth-link">
+            <svg class="nav-auth-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Login / Signup</span>
+          </a>
+        </div>
       </div>
 
       <div class="mobile-drawer-footer">
@@ -158,13 +170,16 @@
         <!-- Interactive Tab Switcher -->
         <div class="auth-tabs" role="tablist">
           <button type="button" class="auth-tab-btn active" data-target="panel-login" role="tab" aria-selected="true">
-            Sign In
+            <svg class="tab-auth-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Sign In</span>
           </button>
           <button type="button" class="auth-tab-btn" data-target="panel-register" role="tab" aria-selected="false">
-            Register
+            <svg class="tab-auth-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Register</span>
           </button>
           <button type="button" class="auth-tab-btn" data-target="panel-forgot" role="tab" aria-selected="false">
-            Recovery
+            <svg class="tab-auth-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Recovery</span>
           </button>
         </div>
 
@@ -242,6 +257,9 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                 </button>
               </div>
+              <small style="display: block; margin-top: 0.35rem; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+                Must contain ≥8 characters with uppercase, lowercase, number, and special character (@, #, $, !).
+              </small>
             </div>
 
             <div class="form-group">

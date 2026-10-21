@@ -740,7 +740,7 @@ button {
 /* --- Hero Section (Home 1 & Home 2) --- */
 .hero-section {
   position: relative;
-  padding-block: 5rem 6rem;
+  padding-block: 4rem 3.5rem;
   background: radial-gradient(circle at top right, rgba(2, 132, 199, 0.08) 0%, transparent 60%),
               radial-gradient(circle at bottom left, rgba(13, 148, 136, 0.05) 0%, transparent 50%),
               var(--bg-surface);
@@ -870,8 +870,11 @@ button {
 
 .hero-image-wrapper img {
   width: 100%;
-  height: 480px;
+  height: auto;
+  max-height: 480px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
+  display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -3746,11 +3749,13 @@ input[type="date"]::-webkit-clear-button {
   .mobile-toggle { display: flex !important; }
 
   /* Hero Section */
-  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+  .hero-section { padding-block: 3.25rem 2.5rem; }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
   .hero-desc { margin-inline: auto; }
   .hero-actions { justify-content: center; }
   .hero-stats-row { justify-content: center; }
-  .hero-media { max-width: 580px; margin-inline: auto; }
+  .hero-media { max-width: 540px; margin-inline: auto; margin-bottom: 0; }
+  .hero-image-wrapper img { max-height: 380px; }
   .page-hero { min-height: 270px; padding-block: 4rem 3.5rem; }
 
   /* Grids: Clean 2-column balanced layouts */
@@ -3836,13 +3841,14 @@ input[type="date"]::-webkit-clear-button {
   .highlight-grid { grid-template-columns: 1fr; gap: 1rem; }
 
   /* Hero Adjustments */
-  .hero-section { padding-block: 3.25rem 3.75rem; }
+  .hero-section { padding-block: 2.75rem 2rem; }
   .hero-title { font-size: clamp(1.85rem, 6vw, 2.35rem); }
   .hero-desc { font-size: 1.05rem; margin-bottom: 1.5rem; }
   .hero-actions { flex-direction: column; width: 100%; gap: 0.75rem; }
   .hero-actions .btn { width: 100%; }
   .hero-stats-row { flex-direction: column; gap: 1.25rem; }
-  .hero-image-wrapper img { height: 300px; }
+  .hero-media { margin-bottom: 0; }
+  .hero-image-wrapper img { height: auto; max-height: 280px; }
 
   .page-hero { min-height: 240px; padding-block: 3rem 2.5rem; }
   .page-hero h1 { font-size: clamp(1.6rem, 5.5vw, 2.1rem); margin-bottom: 0.75rem; }
@@ -4034,3 +4040,230 @@ input[type="date"]::-webkit-clear-button {
 [dir="rtl"] .btn:hover .svg-arrow {
   transform: translateX(-4px);
 }
+
+/* ==========================================================================
+   Enhancements: Auth Nav, About Image, Blog Takeaways & Testimonials
+   ========================================================================== */
+
+/* Navigation Auth Link & Icon */
+.nav-auth-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  vertical-align: middle !important;
+}
+
+.nav-auth-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  color: currentColor;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-auth-link:hover .nav-auth-icon {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+.tab-auth-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* About Us Image Fit & Alignment */
+.about-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: stretch;
+}
+
+.about-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform var(--transition-smooth);
+}
+
+.about-image-wrapper:hover img {
+  transform: scale(1.03);
+}
+
+@media (max-width: 1024px) {
+  .about-image-wrapper {
+    min-height: 340px;
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-image-wrapper {
+    min-height: 240px;
+    max-height: 320px;
+  }
+}
+
+/* Blog Key Takeaways List & Alignment */
+.blog-takeaways-box {
+  background-color: var(--bg-alt);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--accent);
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.blog-takeaways-box h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blog-takeaways-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-takeaways-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  font-size: 0.975rem;
+  line-height: 1.65;
+  color: var(--text-main);
+  text-align: left;
+}
+
+.blog-takeaways-list li svg {
+  color: var(--emerald);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.blog-takeaways-list li strong {
+  color: var(--text-heading);
+}
+
+.blog-takeaways-list li .takeaway-text {
+  flex-grow: 1;
+}
+
+/* Blog Testimonial Bar Section (Consistent with index.html .testimonial-card) */
+.blog-testimonial-section {
+  margin-top: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.blog-testimonial-section .testimonial-card {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* Blog Comments & Enquiries Cards */
+.blog-comment-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.blog-comment-card:hover {
+  border-color: var(--border-color-hover, var(--accent-soft));
+  box-shadow: var(--shadow-sm);
+}
+
+.blog-comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.blog-comment-author-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.blog-comment-author-wrap .patient-avatar-badge {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  font-size: 0.875rem;
+}
+
+.blog-comment-text {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.blog-comment-reply {
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+}
+
+.blog-comment-reply-author {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.blog-comment-reply-text {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Clinic Schedule Sunday High Contrast Badge */
+.schedule-sunday-badge {
+  background: var(--amber-soft);
+  color: #B45309;
+  font-weight: 700;
+  font-size: 0.825rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+[data-theme="dark"] .schedule-sunday-badge {
+  background: rgba(245, 158, 11, 0.2);
+  color: #FCD34D;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+

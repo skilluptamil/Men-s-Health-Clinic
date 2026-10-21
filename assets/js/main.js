@@ -302,7 +302,36 @@ function validateDateField(input, isAppointment = true) {
   return true;
 }
 
-function validatePasswordField(input, minLen = 8) {
+function validateSignupPassword(input) {
+  if (!input) return true;
+  const val = input.value;
+  if (!val) {
+    setFieldError(input, 'Password is required.');
+    return false;
+  }
+  if (val.length < 8) {
+    setFieldError(input, 'Password must be at least 8 characters long.');
+    return false;
+  }
+  const hasUpper = /[A-Z]/.test(val);
+  const hasLower = /[a-z]/.test(val);
+  const hasNumber = /[0-9]/.test(val);
+  const hasSpecial = /[^A-Za-z0-9]/.test(val);
+
+  if (!hasUpper || !hasLower || !hasNumber || !hasSpecial) {
+    const missing = [];
+    if (!hasUpper) missing.push('an uppercase letter (A-Z)');
+    if (!hasLower) missing.push('a lowercase letter (a-z)');
+    if (!hasNumber) missing.push('a number (0-9)');
+    if (!hasSpecial) missing.push('a special character (e.g. @, #, $, !)');
+    setFieldError(input, `Password must contain at least ${missing.join(', ')}.`);
+    return false;
+  }
+  clearFieldError(input);
+  return true;
+}
+
+function validateLoginPassword(input, minLen = 6) {
   if (!input) return true;
   const val = input.value;
   if (!val) {
@@ -315,6 +344,14 @@ function validatePasswordField(input, minLen = 8) {
   }
   clearFieldError(input);
   return true;
+}
+
+function validatePasswordField(input, minLen = 8) {
+  if (!input) return true;
+  if (input.id === 'reg-password') {
+    return validateSignupPassword(input);
+  }
+  return validateLoginPassword(input, minLen);
 }
 
 function validateMessageField(textarea, minLen = 5, maxLen = 1000, isRequired = false) {
@@ -448,22 +485,44 @@ function setupInputMasks() {
     });
   });
 
-  // 7. Password inputs: live error clearance
-  document.querySelectorAll('input[type="password"]').forEach(passInput => {
-    passInput.addEventListener('input', () => {
-      if (passInput.value.length >= 8) {
-        clearFieldError(passInput);
+  // 7. Password inputs: live validation and error clearance
+  const regPassLive = document.getElementById('reg-password');
+  const regConfirmLive = document.getElementById('reg-confirm-password');
+  const loginPassLive = document.getElementById('login-password');
+
+  if (loginPassLive) {
+    loginPassLive.addEventListener('input', () => {
+      if (loginPassLive.value.length >= 6) {
+        clearFieldError(loginPassLive);
       }
     });
-  });
+  }
+
+  if (regPassLive) {
+    regPassLive.addEventListener('input', () => {
+      if (regPassLive.classList.contains('is-invalid')) {
+        validateSignupPassword(regPassLive);
+      } else {
+        const val = regPassLive.value;
+        if (val.length >= 8 && /[A-Z]/.test(val) && /[a-z]/.test(val) && /[0-9]/.test(val) && /[^A-Za-z0-9]/.test(val)) {
+          clearFieldError(regPassLive);
+        }
+      }
+      if (regConfirmLive && regConfirmLive.value) {
+        if (regConfirmLive.value !== regPassLive.value) {
+          setFieldError(regConfirmLive, 'Confirm password must match your chosen password.');
+        } else {
+          clearFieldError(regConfirmLive);
+        }
+      }
+    });
+  }
 
   // 8. Confirm Password matching clearance
-  const regConfirm = document.getElementById('reg-confirm-password');
-  const regPass = document.getElementById('reg-password');
-  if (regConfirm && regPass) {
-    regConfirm.addEventListener('input', () => {
-      if (regConfirm.value === regPass.value && regConfirm.value.length >= 8) {
-        clearFieldError(regConfirm);
+  if (regConfirmLive && regPassLive) {
+    regConfirmLive.addEventListener('input', () => {
+      if (regConfirmLive.value === regPassLive.value && regConfirmLive.value.length >= 8) {
+        clearFieldError(regConfirmLive);
       }
     });
   }
@@ -1266,6 +1325,35 @@ function initForms() {
       }
 
       showToast('Your confidential inquiry has been submitted for physician review.', 'success');
+      
+      // Dynamically display the new enquiry in the patient comments & enquiries list
+      const commentsList = document.getElementById('blog-comments-list');
+      const commentsCount = document.getElementById('blog-comments-count');
+      if (commentsList) {
+        const newName = inqName.value.trim();
+        const newMsg = inqMsg.value.trim();
+        const initials = newName.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() || 'PT';
+        const newCard = document.createElement('div');
+        newCard.className = 'blog-comment-card';
+        newCard.style.animation = 'fadeInUp 0.4s ease';
+        newCard.innerHTML = `
+          <div class="blog-comment-header">
+            <div class="blog-comment-author-wrap">
+              <div class="patient-avatar-badge" style="width: 38px; height: 38px; min-width: 38px; min-height: 38px; font-size: 0.85rem;">${initials}</div>
+              <div>
+                <h5 style="margin: 0; font-size: 0.95rem; font-weight: 700; color: var(--text-heading);">${newName}</h5>
+                <span style="font-size: 0.75rem; color: var(--emerald); font-weight: 600;">Patient Enquiry • Just now</span>
+              </div>
+            </div>
+          </div>
+          <p class="blog-comment-text">${newMsg}</p>
+        `;
+        commentsList.prepend(newCard);
+        if (commentsCount) {
+          commentsCount.textContent = String(parseInt(commentsCount.textContent || '0', 10) + 1);
+        }
+      }
+
       blogInquiryForm.reset();
     });
   }
@@ -1419,8 +1507,12 @@ function initAuthTabs() {
   if (authTabs.length > 0) {
     authTabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        authTabs.forEach(t => t.classList.remove('active'));
+        authTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
         tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
 
         const targetId = tab.getAttribute('data-target');
         authForms.forEach(form => {
@@ -1432,6 +1524,18 @@ function initAuthTabs() {
         });
       });
     });
+
+    // Check URL hash or search parameter for tab activation
+    const currentHash = window.location.hash.toLowerCase();
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (currentHash === '#register' || currentHash === '#signup' || tabParam === 'register' || tabParam === 'signup') {
+      const regTab = document.querySelector('[data-target="panel-register"]');
+      if (regTab) regTab.click();
+    } else if (currentHash === '#forgot' || currentHash === '#recovery' || tabParam === 'forgot') {
+      const forgotTab = document.querySelector('[data-target="panel-forgot"]');
+      if (forgotTab) forgotTab.click();
+    }
   }
 
   // Password toggle
@@ -1470,7 +1574,7 @@ function initAuthTabs() {
         isValid = false;
         if (!firstInvalid) firstInvalid = loginEmail;
       }
-      if (!validatePasswordField(loginPass, 6)) {
+      if (!validateLoginPassword(loginPass, 6)) {
         isValid = false;
         if (!firstInvalid) firstInvalid = loginPass;
       }
@@ -1520,7 +1624,7 @@ function initAuthTabs() {
         isValid = false;
         if (!firstInvalid) firstInvalid = regEmail;
       }
-      if (!validatePasswordField(regPass, 8)) {
+      if (!validateSignupPassword(regPass)) {
         isValid = false;
         if (!firstInvalid) firstInvalid = regPass;
       }
@@ -2215,6 +2319,11 @@ const BLOGS_DATA = {
         text: "Great article. Finally someone explained the difference between total and free testosterone clearly."
       }
     ],
+    testimonial: {
+      quote: "Dr. Chen's TRT protocol changed my life. I went from constant brain fog and fatigue to feeling energized and sharp like I was in my 20s. The blood monitoring and care are second to none.",
+      name: "James S., 46",
+      treatment: "Hormone Optimization Patient"
+    },
     ctaTitle: "Ready to Optimize Your Vitality?",
     ctaDesc: "Schedule your confidential hormone and vitality assessment with Dr. David Chen today. Direct in-house lab panels and tailored medical protocols.",
     ctaBtnText: "Book Vitality Consultation",
@@ -2297,6 +2406,11 @@ const BLOGS_DATA = {
         text: "Had the procedure with Dr. Rossi 6 months ago. Waking up zero times a night now after waking up 4-5 times every single night for five years. Truly life changing."
       }
     ],
+    testimonial: {
+      quote: "After struggling with BPH for 4 years, Dr. Rossi performed the Rezūm procedure. Within 3 weeks my symptoms vanished completely. Absolute professionalism and total discretion throughout.",
+      name: "Robert M., 58",
+      treatment: "Prostate Care Patient"
+    },
     ctaTitle: "Ready for Lasting Relief from Prostate Symptoms?",
     ctaDesc: "Schedule a direct clinical consultation with Chief Urologist Dr. Anthony Rossi to evaluate whether Rezūm water vapor therapy is right for you.",
     ctaBtnText: "Book Prostate Consultation",
@@ -2374,6 +2488,11 @@ const BLOGS_DATA = {
         text: "After finishing my 6-session protocol, I noticed a dramatic difference in spontaneous firmness. Highly recommend consulting Dr. Sterling."
       }
     ],
+    testimonial: {
+      quote: "After finishing my 6-session protocol with Dr. Sterling, I noticed a dramatic difference in spontaneous firmness. Discretion and clinical excellence from day one.",
+      name: "David M., 51",
+      treatment: "Vascular ED Rejuvenation Patient"
+    },
     ctaTitle: "Reclaim Spontaneous Natural Vitality",
     ctaDesc: "Book a private, discreet consultation with Dr. Marcus Sterling in our confidential executive clinic suite.",
     ctaBtnText: "Book Vitality Evaluation",
@@ -2449,6 +2568,11 @@ const BLOGS_DATA = {
         text: "The 24-hour urine testing completely solved my stone issues. Found out my urinary citrate was near zero. Haven't had a stone in 3 years now."
       }
     ],
+    testimonial: {
+      quote: "The 24-hour urine metabolic testing completely solved my stone issues. Found out my urinary citrate was near zero. Haven't had a stone in 3 years now thanks to Dr. Jenkins.",
+      name: "Brian W., 52",
+      treatment: "Kidney Stone & Metabolic Patient"
+    },
     ctaTitle: "Stop Painful Kidney Stones for Good",
     ctaDesc: "Schedule a comprehensive metabolic workup or expedited stone evaluation with Dr. Sarah Jenkins today.",
     ctaBtnText: "Book Stone Consultation",
@@ -2516,6 +2640,11 @@ const BLOGS_DATA = {
         }
       }
     ],
+    testimonial: {
+      quote: "Addressing the early warning signs of andropause with Dr. Chen restored my focus and vitality. I've dropped 18 lbs of visceral fat and feel 15 years younger.",
+      name: "Thomas R., 49",
+      treatment: "Andropause & Vitality Patient"
+    },
     ctaTitle: "Take Proactive Control of Your Hormonal Health",
     ctaDesc: "Schedule a 32-biomarker endocrine evaluation with Dr. David Chen to uncover your true hormonal profile.",
     ctaBtnText: "Book Hormone Assessment",
@@ -2579,6 +2708,11 @@ const BLOGS_DATA = {
         }
       }
     ],
+    testimonial: {
+      quote: "The no-scalpel vasectomy with Dr. Sterling was literally over in 15 minutes with zero pain. The private suite made the experience completely stress-free. Highly recommended!",
+      name: "David K., 39",
+      treatment: "No-Scalpel Vasectomy Patient"
+    },
     ctaTitle: "Schedule Your Gentle No-Scalpel Procedure",
     ctaDesc: "Private, discreet, and seamless care with Dr. Marcus Sterling. Friday afternoon appointment slots available.",
     ctaBtnText: "Book Vasectomy Consult",
@@ -2641,6 +2775,11 @@ const BLOGS_DATA = {
         }
       }
     ],
+    testimonial: {
+      quote: "My local clinic rushed me to get an immediate random needle biopsy after an elevated PSA. Dr. Rossi recommended 3T MRI first, which proved my elevation was simply moderate benign inflammation. Avoided invasive procedures completely.",
+      name: "Donald S., 61",
+      treatment: "3T MRI Prostate Screening"
+    },
     ctaTitle: "Get an Expert Second Opinion on Your Prostate Health",
     ctaDesc: "Schedule a confidential consultation and comprehensive PSA review with Dr. Anthony Rossi.",
     ctaBtnText: "Book Prostate Screening",
@@ -2733,15 +2872,16 @@ function initBlogDetailsDynamic() {
       }, 100);
     }
 
-    // Key Takeaways List
+    // Key Takeaways List (Properly aligned with dedicated flex layout)
     const takeawaysList = document.getElementById('blog-takeaways-list');
     if (takeawaysList && data.takeaways) {
+      takeawaysList.className = 'blog-takeaways-list';
       takeawaysList.innerHTML = data.takeaways.map(t => {
         const parts = t.split(':');
         if (parts.length > 1) {
-          return `<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>${parts[0]}:</strong>${parts.slice(1).join(':')}</li>`;
+          return `<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><div class="takeaway-text"><strong>${parts[0].trim()}:</strong> ${parts.slice(1).join(':').trim()}</div></li>`;
         }
-        return `<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> ${t}</li>`;
+        return `<li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><div class="takeaway-text">${t.trim()}</div></li>`;
       }).join('');
     }
 
@@ -2749,6 +2889,26 @@ function initBlogDetailsDynamic() {
     const fullContentEl = document.getElementById('blog-full-content');
     if (fullContentEl && data.content) {
       fullContentEl.innerHTML = data.content;
+    }
+
+    // Testimonial Bar Section (Consistent with website testimonial-card)
+    const testimonialContainer = document.getElementById('blog-testimonial-container');
+    if (testimonialContainer && data.testimonial) {
+      const initials = data.testimonial.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+      testimonialContainer.innerHTML = `
+        <div class="testimonial-card">
+          <div class="stars-row">★★★★★</div>
+          <p class="testimonial-quote">"${data.testimonial.quote}"</p>
+          <div class="patient-profile">
+            <div class="patient-avatar-badge">${initials}</div>
+            <div class="patient-details">
+              <h5 class="patient-name">${data.testimonial.name}</h5>
+              <p class="patient-treatment">${data.testimonial.treatment}</p>
+              <span class="verified-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Verified Patient</span>
+            </div>
+          </div>
+        </div>
+      `;
     }
 
     // Author card
@@ -2764,26 +2924,37 @@ function initBlogDetailsDynamic() {
     const authorRole = document.getElementById('blog-author-role');
     if (authorRole && data.author) authorRole.textContent = data.author.bio || data.author.role;
 
-    // Comments Section
+    // Comments & Enquiries Section
     const commentsList = document.getElementById('blog-comments-list');
     const commentsHeading = document.getElementById('blog-comments-heading');
     if (commentsList && data.comments) {
-      if (commentsHeading) commentsHeading.textContent = `Patient Comments & Inquiries (${data.comments.length})`;
-      commentsList.innerHTML = data.comments.map(c => `
-        <div style="background: var(--bg-surface); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px;">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-            <strong>${c.author}</strong>
-            <span style="font-size: 0.8rem; color: var(--text-muted);">${c.time}</span>
+      if (commentsHeading) commentsHeading.innerHTML = `Patient Comments (<span id="blog-comments-count">${data.comments.length}</span>)`;
+      commentsList.innerHTML = data.comments.map(c => {
+        const initials = c.author ? c.author.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() : 'PT';
+        return `
+        <div class="blog-comment-card">
+          <div class="blog-comment-header">
+            <div class="blog-comment-author-wrap">
+              <div class="patient-avatar-badge" style="width: 38px; height: 38px; min-width: 38px; min-height: 38px; font-size: 0.85rem;">${initials}</div>
+              <div>
+                <h5 style="margin: 0; font-size: 0.95rem; font-weight: 700; color: var(--text-heading);">${c.author}</h5>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">${c.time}</span>
+              </div>
+            </div>
           </div>
-          <p style="font-size: 0.925rem; color: var(--text-muted); margin: 0;">${c.text}</p>
+          <p class="blog-comment-text">${c.text}</p>
           ${c.reply ? `
-            <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-alt); border-radius: 8px; border-left: 2px solid var(--accent);">
-              <strong style="font-size: 0.85rem; color: var(--accent);">${c.reply.author}:</strong>
-              <p style="font-size: 0.875rem; margin: 0; color: var(--text-main);">${c.reply.text}</p>
+            <div class="blog-comment-reply">
+              <div class="blog-comment-reply-author">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 10 20 15 15 20"></polyline><path d="M4 4v7a4 4 0 0 0 4 4h12"></path></svg>
+                <span>${c.reply.author}:</span>
+              </div>
+              <p class="blog-comment-reply-text">${c.reply.text}</p>
             </div>
           ` : ''}
         </div>
-      `).join('');
+      `;
+      }).join('');
     }
 
     // Bottom CTA
