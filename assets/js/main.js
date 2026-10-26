@@ -322,9 +322,9 @@ function validateSignupPassword(input) {
     const missing = [];
     if (!hasUpper) missing.push('an uppercase letter (A-Z)');
     if (!hasLower) missing.push('a lowercase letter (a-z)');
-    if (!hasNumber) missing.push('a number (0-9)');
-    if (!hasSpecial) missing.push('a special character (e.g. @, #, $, !)');
-    setFieldError(input, `Password must contain at least ${missing.join(', ')}.`);
+    if (!hasNumber) missing.push('at least one numerical digit (0–9)');
+    if (!hasSpecial) missing.push('one special character (e.g. @, #, $, !)');
+    setFieldError(input, `Password must contain ${missing.join(', ')}.`);
     return false;
   }
   clearFieldError(input);
@@ -340,6 +340,16 @@ function validateLoginPassword(input, minLen = 6) {
   }
   if (val.length < minLen) {
     setFieldError(input, `Password must be at least ${minLen} characters long.`);
+    return false;
+  }
+  const hasNumber = /[0-9]/.test(val);
+  const hasSpecial = /[^A-Za-z0-9]/.test(val);
+
+  if (!hasNumber || !hasSpecial) {
+    const missing = [];
+    if (!hasNumber) missing.push('at least one numerical digit (0–9)');
+    if (!hasSpecial) missing.push('at least one special character (e.g. @, #, $, !)');
+    setFieldError(input, `Password must contain ${missing.join(' and ')}.`);
     return false;
   }
   clearFieldError(input);
@@ -492,8 +502,13 @@ function setupInputMasks() {
 
   if (loginPassLive) {
     loginPassLive.addEventListener('input', () => {
-      if (loginPassLive.value.length >= 6) {
-        clearFieldError(loginPassLive);
+      if (loginPassLive.classList.contains('is-invalid')) {
+        validateLoginPassword(loginPassLive, 6);
+      } else {
+        const val = loginPassLive.value;
+        if (val.length >= 6 && /[0-9]/.test(val) && /[^A-Za-z0-9]/.test(val)) {
+          clearFieldError(loginPassLive);
+        }
       }
     });
   }
@@ -2483,9 +2498,9 @@ const BLOGS_DATA = {
         }
       },
       {
-        author: "David M.",
+        author: "Marcus L.",
         time: "2 weeks ago",
-        text: "After finishing my 6-session protocol, I noticed a dramatic difference in spontaneous firmness. Highly recommend consulting Dr. Sterling."
+        text: "How many sessions are typically recommended before noticing measurable vascular improvement?"
       }
     ],
     testimonial: {
@@ -2563,9 +2578,9 @@ const BLOGS_DATA = {
         }
       },
       {
-        author: "Brian W.",
+        author: "Daniel H.",
         time: "6 days ago",
-        text: "The 24-hour urine testing completely solved my stone issues. Found out my urinary citrate was near zero. Haven't had a stone in 3 years now."
+        text: "Does high dietary oxalate from foods like spinach really affect stone formation as much as salt?"
       }
     ],
     testimonial: {
@@ -2631,7 +2646,7 @@ const BLOGS_DATA = {
     `,
     comments: [
       {
-        author: "Thomas R.",
+        author: "Philip N.",
         time: "5 days ago",
         text: "At what age should men start getting their baseline hormone panel checked?",
         reply: {
@@ -2766,7 +2781,7 @@ const BLOGS_DATA = {
     `,
     comments: [
       {
-        author: "Donald S.",
+        author: "Stephen C.",
         time: "2 weeks ago",
         text: "Can intense bicycling or exercise before a blood test cause a temporary spike in PSA?",
         reply: {
@@ -2928,7 +2943,7 @@ function initBlogDetailsDynamic() {
     const commentsList = document.getElementById('blog-comments-list');
     const commentsHeading = document.getElementById('blog-comments-heading');
     if (commentsList && data.comments) {
-      if (commentsHeading) commentsHeading.innerHTML = `Patient Comments (<span id="blog-comments-count">${data.comments.length}</span>)`;
+      if (commentsHeading) commentsHeading.innerHTML = `Patient Comments & Enquiries (<span id="blog-comments-count">${data.comments.length}</span>)`;
       commentsList.innerHTML = data.comments.map(c => {
         const initials = c.author ? c.author.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() : 'PT';
         return `

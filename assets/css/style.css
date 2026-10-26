@@ -1342,11 +1342,19 @@ button {
   font-size: 0.9rem;
 }
 
+.feature-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 /* --- Doctor Specialist Cards --- */
 .doctors-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
+  align-items: stretch;
 }
 
 .doctor-card {
@@ -1356,9 +1364,10 @@ button {
   overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: all var(--transition-normal);
-  text-align: center;
+  text-align: left;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .doctor-card:hover {
@@ -1404,35 +1413,72 @@ button {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  text-align: left;
 }
 
 .doctor-info h4 {
   font-size: 1.2rem;
-  margin-bottom: 0.25rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+  min-height: 1.6rem;
 }
 
 .doctor-role {
   color: var(--accent);
   font-weight: 600;
   font-size: 0.875rem;
-  margin-bottom: 0.75rem;
+  line-height: 1.35;
+  margin-bottom: 0.85rem;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: flex-start;
 }
 
 .doctor-creds {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
+  line-height: 1.55;
   margin-bottom: 1.25rem;
-  line-height: 1.45;
   flex-grow: 1;
+  text-align: left;
+  min-height: 5.5rem;
 }
 
 .doctor-card-footer {
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: auto;
   display: flex;
   align-items: center;
+  width: 100%;
+}
+
+.doctor-card-footer .btn {
+  width: 100%;
   justify-content: center;
-  gap: 0.75rem;
+  font-weight: 600;
+  padding: 0.7rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Doctor card RTL support */
+[dir="rtl"] .doctor-card,
+[dir="rtl"] .doctor-info,
+[dir="rtl"] .doctor-creds {
+  text-align: right;
+}
+
+[dir="rtl"] .doctor-role {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .doctor-badge-exp {
+  right: auto;
+  left: 1rem;
 }
 
 /* --- Testimonials Section --- */
@@ -3825,6 +3871,7 @@ input[type="date"]::-webkit-clear-button {
   .service-card-media { height: 210px; }
   .doctors-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .doctor-media { height: 300px; }
+  .doctor-role, .doctor-creds { min-height: auto; }
 
   /* Metrics 2 cols with clean padding */
   .service-metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
@@ -3864,6 +3911,8 @@ input[type="date"]::-webkit-clear-button {
   .auth-section, .error-layout, .maintenance-layout { padding: 2.5rem 1rem; }
   .filter-controls-wrap { flex-direction: column; align-items: stretch; gap: 1rem; }
   .search-input-box { width: 100%; min-width: 0; }
+  .blog-takeaways-box { padding: 1.25rem 1rem; }
+  .blog-takeaways-list li { gap: 0.65rem; font-size: 0.925rem; }
 
   /* Modal System */
   .modal-backdrop { padding: 0.75rem; }
@@ -4076,44 +4125,46 @@ input[type="date"]::-webkit-clear-button {
   vertical-align: middle;
 }
 
-/* About Us Image Fit & Alignment */
-.about-image-wrapper {
+/* About Us & Home Feature Image Fit & Alignment */
+.about-image-wrapper,
+.feature-image-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 420px;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   border: 1px solid var(--border-color);
-  display: flex;
-  align-items: stretch;
+  background-color: var(--bg-alt);
+  display: block;
 }
 
-.about-image-wrapper img {
+.about-image-wrapper img,
+.feature-image-wrapper img {
   width: 100%;
   height: 100%;
+  max-height: 480px;
   object-fit: cover;
   object-position: center;
   display: block;
   transition: transform var(--transition-smooth);
 }
 
-.about-image-wrapper:hover img {
+.about-image-wrapper:hover img,
+.feature-image-wrapper:hover img {
   transform: scale(1.03);
 }
 
 @media (max-width: 1024px) {
-  .about-image-wrapper {
-    min-height: 340px;
-    max-height: 420px;
+  .about-image-wrapper img,
+  .feature-image-wrapper img {
+    max-height: 380px;
   }
 }
 
 @media (max-width: 576px) {
-  .about-image-wrapper {
-    min-height: 240px;
-    max-height: 320px;
+  .about-image-wrapper img,
+  .feature-image-wrapper img {
+    max-height: 280px;
   }
 }
 
@@ -4123,6 +4174,9 @@ input[type="date"]::-webkit-clear-button {
   padding: 2rem;
   border-radius: var(--radius-lg);
   border-left: 4px solid var(--accent);
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
   margin-bottom: 2.5rem;
   box-shadow: var(--shadow-sm);
 }
@@ -4168,6 +4222,16 @@ input[type="date"]::-webkit-clear-button {
 
 .blog-takeaways-list li .takeaway-text {
   flex-grow: 1;
+}
+
+[dir="rtl"] .blog-takeaways-box {
+  border-left: 1px solid var(--border-color);
+  border-right: 4px solid var(--accent);
+  text-align: right;
+}
+
+[dir="rtl"] .blog-takeaways-list li {
+  text-align: right;
 }
 
 /* Blog Testimonial Bar Section (Consistent with index.html .testimonial-card) */
@@ -4251,19 +4315,34 @@ input[type="date"]::-webkit-clear-button {
 /* Clinic Schedule Sunday High Contrast Badge */
 .schedule-sunday-badge {
   background: var(--amber-soft);
-  color: #B45309;
+  color: #78350F;
   font-weight: 700;
-  font-size: 0.825rem;
-  padding: 0.25rem 0.65rem;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  letter-spacing: 0.01em;
+}
+
+.schedule-sunday-badge svg {
+  color: #B45309;
+  flex-shrink: 0;
 }
 
 [data-theme="dark"] .schedule-sunday-badge {
-  background: rgba(245, 158, 11, 0.2);
+  background: rgba(245, 158, 11, 0.22);
+  color: #FDE68A;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+}
+
+[data-theme="dark"] .schedule-sunday-badge svg {
   color: #FCD34D;
-  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+[dir="rtl"] .schedule-sunday-badge {
+  direction: rtl;
 }
 
